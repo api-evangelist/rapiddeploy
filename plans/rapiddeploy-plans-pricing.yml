@@ -1,0 +1,21 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
+name: RapidDeploy plans and pricing
+description: >-
+  RapidDeploy publishes no pricing page and no plan tiers. It sells NG9-1-1 software to public-safety
+  agencies through government procurement and, since the Motorola Solutions acquisition, through the
+  acquirer's sales motion; rapiddeploy.com/pricing 301s to a Motorola Solutions marketing page like
+  every other path. Marketplace listings exist on Microsoft AppSource / Azure Marketplace for Nimbus
+  CAD and RadiusPlus Tactical Mapping but are contact-to-quote, not priced.
+plan_count: 0
+plans: []
+pricing_model: contact-sales
+free_tier: false
+evidence:
+- url: https://rapiddeploy.com/pricing
+  status: 301
+  detail: 'Redirects to the Motorola Solutions NG9-1-1 product page; no pricing content is served.'
+- url: https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
+  status: 200
+  detail: 'No prices, tiers, quotas or overage terms on the destination page.'

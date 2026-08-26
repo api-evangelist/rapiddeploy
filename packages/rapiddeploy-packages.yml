@@ -1,0 +1,35 @@
+generated: '2026-08-26'
+method: searched
+source: 'registry.npmjs.org search, pypi.org, GitHub org github.com/rapiddeploy, GitHub code search'
+name: RapidDeploy client packages
+description: >-
+  No first-party RapidDeploy SDK or client library was found in any public registry. Every
+  "rapiddeploy" package or repository located belongs to a different project - chiefly MidVision
+  RapidDeploy, an unrelated application-release-automation product, plus unrelated student/hobby
+  repositories of the same name. No `SDKs` pointer is emitted.
+package_count: 0
+packages: []
+registries_searched:
+- registry: npm
+  query: 'https://registry.npmjs.org/-/v1/search?text=rapiddeploy'
+  status: 200
+  results: 0
+- registry: pypi
+  query: https://pypi.org/pypi/rapiddeploy/json
+  status: 404
+  results: 0
+- registry: github
+  query: 'https://api.github.com/orgs/rapiddeploy/repos'
+  status: 200
+  results: 0
+  detail: 'The org github.com/rapiddeploy exists (created 2021-06-01, blog https://rapiddeploy.com, info@rapiddeploy.com) and has 0 public repositories.'
+- registry: github-search
+  query: 'search/repositories?q=rapiddeploy+in:name'
+  status: 200
+  results: 29
+  detail: >-
+    All 29 belong to other owners - MidVision/rapiddeploy-jenkins and MidVision/go-rapiddeploy (the
+    unrelated MidVision release-automation product) and assorted personal repositories. None is
+    published by this company.
+not_searched:
+- 'Maven Central, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io - skipped after npm/PyPI/GitHub all returned zero first-party results and no SDK is referenced anywhere in the company''s public material.'

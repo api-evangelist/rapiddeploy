@@ -1,0 +1,111 @@
+generated: '2026-08-26'
+method: probed
+source: https://auth.rapiddeploy.com/.well-known/openid-configuration
+name: RapidDeploy standards conformance
+description: >-
+  Cross-cutting and domain standards asserted for RapidDeploy. Only the OAuth 2.0 / OIDC family can
+  be verified anonymously, from the discovery documents on the company's own Auth0 tenant. No
+  OpenAPI, AsyncAPI, GraphQL SDL, WSDL or .proto is published, so no contract-level conformance can
+  be read for anything else - including the NG911 domain standards the company markets.
+standards:
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'authorization_endpoint, token_endpoint, revocation_endpoint and grant_types_supported are all advertised.'
+- id: oidc
+  name: OpenID Connect Core 1.0
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'issuer https://auth.rapiddeploy.com/, userinfo_endpoint, jwks_uri, id_token_signing_alg_values_supported and claims_supported all present.'
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata (RFC 8414)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/oauth-authorization-server
+    http_status: 200
+    detail: 'Served at the RFC 8414 well-known path; byte-identical to the OIDC discovery document.'
+- id: rfc7636
+  name: PKCE (RFC 7636)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'code_challenge_methods_supported: [S256, plain].'
+- id: rfc8628
+  name: OAuth 2.0 Device Authorization Grant (RFC 8628)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'device_authorization_endpoint https://auth.rapiddeploy.com/oauth/device/code and urn:ietf:params:oauth:grant-type:device_code advertised.'
+- id: rfc9449
+  name: OAuth 2.0 Demonstrating Proof of Possession (DPoP, RFC 9449)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'dpop_signing_alg_values_supported: [ES256].'
+- id: rfc7591
+  name: OAuth 2.0 Dynamic Client Registration (RFC 7591)
+  conforms: true
+  evidence:
+    url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+    http_status: 200
+    detail: 'registration_endpoint https://auth.rapiddeploy.com/oidc/register.'
+- id: rfc9457
+  name: Problem Details for HTTP APIs (RFC 9457)
+  conforms: false
+  evidence:
+    url: https://api.rapiddeploy.com/
+    http_status: 404
+    detail: >-
+      The API host returns a bespoke JSON envelope '{ "statusCode": 404, "message": "Resource not
+      found" }' with content-type application/json, not application/problem+json.
+- id: rfc9116
+  name: security.txt (RFC 9116)
+  conforms: false
+  evidence:
+    url: https://api.rapiddeploy.com/.well-known/security.txt
+    http_status: 404
+    detail: >-
+      No RapidDeploy-authored security.txt on any host. status.rapiddeploy.com serves one at 200 but
+      it is Atlassian's (Canonical https://www.atlassian.com/.well-known/security.txt), carried by
+      the Statuspage vendor.
+domain_standards:
+- id: nena-i3
+  name: NENA i3 / NG9-1-1 (NENA-STA-010)
+  market: Public safety answering points (PSAP) / emergency call handling
+  conforms: false
+  claimed: true
+  evidence:
+    url: https://api.rapiddeploy.com/openapi.json
+    http_status: 404
+    detail: >-
+      RapidDeploy markets NG9-1-1 conformance and an "open-API framework" in product literature, but
+      publishes no contract in which an i3 shape (an ESInet/LoST/HELD/ADR interface, a PIDF-LO
+      location object, or a NENA-STA-010 message type) could be observed. REWARD-ONLY dimension:
+      recorded as unverified, not as a failure. Verifying it would require the agency-facing
+      integration specification, which is not public.
+- id: esri
+  name: Esri ArcGIS geospatial services
+  market: Tactical mapping
+  conforms: false
+  claimed: true
+  evidence:
+    url: https://api.rapiddeploy.com/openapi.json
+    http_status: 404
+    detail: >-
+      Radius Mapping is marketed as having a deep Esri integration; no public contract exposes an
+      ArcGIS REST or OGC service surface under a RapidDeploy host.
+certifications_published: []
+certifications_note: >-
+  No RapidDeploy-specific trust center, SOC 2, StateRAMP, FedRAMP or CJIS attestation page could be
+  located on a rapiddeploy.com host. The acquirer's trust center at
+  https://www.motorolasolutions.com/en_us/about/trust-center.html is the only trust surface reachable
+  from the redirect chain, and it does not name RapidDeploy. No `Compliance` pointer is emitted -
+  asserting one would credit RapidDeploy with a published certification it does not publish.

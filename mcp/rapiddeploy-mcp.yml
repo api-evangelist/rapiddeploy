@@ -1,0 +1,29 @@
+generated: '2026-08-26'
+method: searched
+source: 'Probe of api.rapiddeploy.com/mcp, mcp.rapiddeploy.com and a search of every public RapidDeploy surface'
+name: RapidDeploy MCP
+description: >-
+  RapidDeploy ships no Model Context Protocol server, hosted or local, and there is no OpenAPI from
+  which a candidate tool list could be derived. This file records the absence so the deployment
+  census is complete; no `MCPServer` pointer is wired, because none exists.
+status: none
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: probed
+tools: []
+evidence:
+- url: https://api.rapiddeploy.com/mcp
+  status: 404
+- url: https://mcp.rapiddeploy.com/
+  status: 0
+  detail: 'Does not resolve (NXDOMAIN).'
+- url: https://registry.npmjs.org/-/v1/search?text=rapiddeploy
+  status: 200
+  detail: 'Zero packages, so no npx-installable stdio server either.'
+note: >-
+  No tool crosswalk is emitted: a crosswalk requires an MCP or GraphQL surface AND an OpenAPI, and
+  RapidDeploy publishes none of the three.

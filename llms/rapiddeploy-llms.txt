@@ -1,0 +1,83 @@
+# RapidDeploy
+
+> RapidDeploy is a cloud-native Next Generation 9-1-1 (NG911) software company (founded 2013 in South
+> Africa, US headquarters in Austin, Texas since 2018) building call-taking, dispatch, mapping and
+> analytics software for Public Safety Answering Points on Microsoft Azure. It was acquired by
+> Motorola Solutions and folded into the Command Center software portfolio.
+
+## Status of the public API surface
+
+RapidDeploy publishes **no public API reference and no machine-readable contract**. There is no
+OpenAPI, AsyncAPI, GraphQL SDL, WSDL, .proto, Postman collection, SDK, CLI, MCP server or A2A agent
+card on any host the company controls. The company markets an "open-API framework" for integrating
+third-party systems (for example Priority Dispatch for police, fire and EMS), but access to it is a
+tenant/partner arrangement, not a published developer product.
+
+As of 2026-08-26, `https://rapiddeploy.com/` and every path beneath it returns HTTP 301 to
+`https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html`,
+a Motorola Solutions page that contains no mention of RapidDeploy. Do not expect to find product,
+developer or legal content on the rapiddeploy.com web domain.
+
+## Products
+
+- Nimbus CAD — cloud computer-aided dispatch, built on Microsoft Azure.
+- Radius Mapping (RadiusPlus) — NG911 primary call-taking tactical map, deep Esri/ArcGIS integration
+  plus supplemental location data sources.
+- Lightning — first-responder mobile application.
+- Eclipse Analytics — response-time and staffing analytics.
+
+## Hosts that are live
+
+- https://api.rapiddeploy.com — platform API host (Cloudflare). Answers every anonymous path with
+  `{ "statusCode": 404, "message": "Resource not found" }`. Not a Problem Details (RFC 9457)
+  envelope. No spec is served at /openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json,
+  /api-docs, /docs or /redoc.
+- https://auth.rapiddeploy.com — the company's Auth0 tenant, issuer `https://auth.rapiddeploy.com/`.
+  This is the only place RapidDeploy serves real machine-readable documents.
+- https://status.rapiddeploy.com — Atlassian Statuspage; components Radius, Lightning, Eclipse.
+- https://github.com/rapiddeploy — GitHub organization, zero public repositories.
+
+## Machine-readable documents
+
+- [OpenID Connect discovery](https://auth.rapiddeploy.com/.well-known/openid-configuration): the
+  identity contract — authorization, token, userinfo, revocation, device-code, dynamic-registration
+  and backchannel endpoints, PKCE (S256), DPoP (ES256), MFA, and the supported grant types including
+  `client_credentials`.
+- [OAuth 2.0 authorization-server metadata (RFC 8414)](https://auth.rapiddeploy.com/.well-known/oauth-authorization-server)
+- [JWKS](https://auth.rapiddeploy.com/.well-known/jwks.json)
+- [Statuspage summary](https://status.rapiddeploy.com/api/v2/summary.json) — component-level
+  operational status as JSON.
+
+## Authentication
+
+OAuth 2.0 / OpenID Connect via Auth0 at `https://auth.rapiddeploy.com`. Machine-to-machine callers
+would use the `client_credentials` grant against `https://auth.rapiddeploy.com/oauth/token`. The
+audience value, the API-level scopes, and how credentials are issued are **not published** — they are
+established per agency tenant. The scopes advertised anonymously are the standard OIDC identity
+scopes (`openid`, `profile`, `offline_access`, `email`, `phone`, `address`, …), not API authorization
+scopes.
+
+## What is not published
+
+- Pricing or plans — sold through government procurement and the acquirer's sales motion.
+- Rate limits — no documented limit and no `RateLimit-*` / `Retry-After` header observed.
+- Error catalog — the API returns a bespoke `{statusCode, message}` envelope, undocumented.
+- Changelog, versioning policy, deprecation policy, SLA.
+- security.txt or a RapidDeploy vulnerability-disclosure policy. (`status.rapiddeploy.com` serves a
+  security.txt, but it is Atlassian's, carried by the Statuspage vendor.)
+
+## Where an integrator should actually go
+
+Agency and partner integration for these products now runs through Motorola Solutions:
+- https://www.motorolasolutions.com/en_us/developers/command-center-partner-program.html
+- https://docs.motorolasolutions.com/
+
+## Legal (acquirer)
+
+- Privacy: https://www.motorolasolutions.com/en_us/about/privacy-policy.html
+- Terms of use: https://www.motorolasolutions.com/en_us/about/terms-use.html
+- Trust center: https://www.motorolasolutions.com/en_us/about/trust-center.html
+
+---
+Generated 2026-08-26 by the API Evangelist enrichment pipeline from probed public surfaces. This is a
+third-party profile; API Evangelist does not operate RapidDeploy's APIs.

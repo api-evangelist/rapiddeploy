@@ -1,0 +1,125 @@
+generated: '2026-08-26'
+method: probed
+source: 'Direct anonymous GET of /.well-known/* on every RapidDeploy host resolved 2026-08-26'
+name: RapidDeploy well-known documents
+description: >-
+  Anonymous /.well-known/ probe of every host under rapiddeploy.com that resolves. The only real
+  documents served are the OpenID Connect / RFC 8414 discovery pair on the company's Auth0 tenant at
+  auth.rapiddeploy.com. The apex (rapiddeploy.com) 301s every path to motorolasolutions.com after the
+  Motorola Solutions acquisition, so no /.well-known/ document is served there at all.
+hosts:
+- host: auth.rapiddeploy.com
+  note: >-
+    RapidDeploy's own Auth0 tenant (CNAME rapiddeploy-cd-wqtgg4ueybstdtyg.edge.tenants.auth0.com);
+    issuer in the discovery document is https://auth.rapiddeploy.com/, so the document describes this
+    company's identity provider, not Auth0's.
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: rapiddeploy-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: rapiddeploy-oauth-authorization-server.json
+    note: 'RFC 8414 authorization-server metadata; byte-identical to the OIDC discovery document.'
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: rapiddeploy-jwks.json
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: api.rapiddeploy.com
+  note: >-
+    Live platform API host behind Cloudflare. Every anonymous path returns a JSON envelope
+    '{ "statusCode": 404, "message": "Resource not found" }' - a real 404, not an SPA shell.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: status.rapiddeploy.com
+  note: >-
+    Atlassian Statuspage instance ("RapidDeploy Status", page id m9mwmnmdgjq2). Its
+    /.well-known/security.txt returns 200 but the document is ATLASSIAN'S, not RapidDeploy's -
+    Canonical is https://www.atlassian.com/.well-known/security.txt and both Contact values point at
+    Atlassian. It is recorded here as observed and deliberately NOT saved or wired as a SecurityTxt
+    pointer, because crediting RapidDeploy with its status-page vendor's disclosure program would be
+    false credit.
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/plain
+    file: null
+    third_party: true
+    canonical: https://www.atlassian.com/.well-known/security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: rapiddeploy.com
+  note: >-
+    Apex 301s every path (including / and every /.well-known/ path) to
+    https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
+    Served by nginx/1.24.0 (Ubuntu). No /.well-known/ document exists.
+  documents:
+  - path: /.well-known/security.txt
+    status: 301
+  - path: /.well-known/openid-configuration
+    status: 301
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+  - path: /.well-known/oauth-protected-resource
+    status: 301
+  - path: /.well-known/api-catalog
+    status: 301
+  - path: /.well-known/ai-plugin.json
+    status: 301
+  - path: /.well-known/agent-card.json
+    status: 301
+  - path: /.well-known/agent.json
+    status: 301
+non_resolving_hosts:
+- app.rapiddeploy.com
+- radius.rapiddeploy.com
+- nimbus.rapiddeploy.com
+- eclipse.rapiddeploy.com
+- portal.rapiddeploy.com
+- support.rapiddeploy.com
+- login.rapiddeploy.com
+- partners.rapiddeploy.com
+- docs.rapiddeploy.com
+- developer.rapiddeploy.com
+- mcp.rapiddeploy.com

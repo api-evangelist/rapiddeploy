@@ -1,0 +1,67 @@
+generated: '2026-08-26'
+method: probed
+source: https://status.rapiddeploy.com/api/v2/summary.json
+name: RapidDeploy lifecycle
+description: >-
+  Versioning, deprecation and operational-status posture for RapidDeploy. The only lifecycle surface
+  the company publishes is an Atlassian Statuspage; there is no public versioning policy, deprecation
+  policy, Sunset/Deprecation header documentation, SLA, or changelog, because there is no public
+  developer portal to carry them.
+status_page:
+  present: true
+  url: https://status.rapiddeploy.com
+  vendor: Atlassian Statuspage
+  page_id: m9mwmnmdgjq2
+  time_zone: America/Chicago
+  api:
+    summary: https://status.rapiddeploy.com/api/v2/summary.json
+    components: https://status.rapiddeploy.com/api/v2/components.json
+    incidents: https://status.rapiddeploy.com/api/v2/incidents.json
+    machine_readable: true
+  components_observed:
+  - name: Radius
+    status: operational
+  - name: Lightning
+    status: operational
+  - name: Eclipse
+    status: operational
+  overall_status_observed: 'All Systems Operational'
+  observed_at: '2026-08-26'
+  note: >-
+    The three named components are the RapidDeploy product line (Radius Mapping, Lightning mobile,
+    Eclipse Analytics) and confirm the page belongs to this company, not to a namesake. Nimbus CAD
+    does not appear as its own component.
+versioning:
+  policy_published: false
+  scheme: unknown
+  note: 'No public versioning policy. api.rapiddeploy.com returns 404 for /v1 and /api/v1 anonymously, so even the path-version convention cannot be confirmed.'
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: unknown
+  deprecated_operations: []
+  note: 'No deprecation policy is published; no contract exists from which deprecated operations could be derived.'
+sla:
+  published: false
+  note: 'Any uptime commitment is contained in agency contracts, not published.'
+change_log:
+  published: false
+  note: >-
+    No dated API changelog or release-notes page. Statuspage incident history is an availability log,
+    not a change log, and is not wired as a ChangeLog pointer.
+company_lifecycle:
+  event: acquisition
+  acquirer: Motorola Solutions
+  status: absorbed
+  evidence:
+  - url: https://rapiddeploy.com/
+    http_status: 301
+    redirect_to: https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
+  - url: https://www.rapiddeploy.com/
+    http_status: 301
+    detail: 'www resolves via CNAME redirector.mot-solutions.com'
+  note: >-
+    Every path on the RapidDeploy web domain, including the root, now 301s to a Motorola Solutions
+    NG9-1-1 product page that contains zero occurrences of the string "RapidDeploy". The operational
+    surface (api., auth., status.) is still live and independent.

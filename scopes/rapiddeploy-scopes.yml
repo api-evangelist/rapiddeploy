@@ -1,0 +1,64 @@
+generated: '2026-08-26'
+method: probed
+source: https://auth.rapiddeploy.com/.well-known/openid-configuration
+docs: null
+name: RapidDeploy OAuth scopes
+description: >-
+  RapidDeploy publishes no scopes/permissions reference. The scopes below are the
+  scopes_supported array advertised by the company's own Auth0 tenant discovery document - they are
+  the standard OIDC identity scopes plus offline_access, and are NOT API authorization scopes. Any
+  API-level scope surface for api.rapiddeploy.com is defined per-tenant inside the Auth0 API
+  registration and is not anonymously discoverable.
+issuer: https://auth.rapiddeploy.com/
+scope_count: 14
+scopes:
+- name: openid
+  description: 'OIDC: request an ID token.'
+  standard: true
+- name: profile
+  description: 'OIDC: basic profile claims.'
+  standard: true
+- name: offline_access
+  description: 'OIDC: issue a refresh token.'
+  standard: true
+- name: name
+  description: 'Identity claim: full name.'
+  standard: true
+- name: given_name
+  description: 'Identity claim: given name.'
+  standard: true
+- name: family_name
+  description: 'Identity claim: family name.'
+  standard: true
+- name: nickname
+  description: 'Identity claim: nickname.'
+  standard: true
+- name: email
+  description: 'Identity claim: email address.'
+  standard: true
+- name: email_verified
+  description: 'Identity claim: email verification state.'
+  standard: true
+- name: picture
+  description: 'Identity claim: profile picture URL.'
+  standard: true
+- name: created_at
+  description: 'Identity claim: account creation time.'
+  standard: true
+- name: identities
+  description: 'Identity claim: linked identity providers.'
+  standard: true
+- name: phone
+  description: 'Identity claim: phone number.'
+  standard: true
+- name: address
+  description: 'Identity claim: address.'
+  standard: true
+api_scopes: []
+api_scopes_note: >-
+  None published. Determining the authorization scopes that gate RapidDeploy platform operations
+  requires an issued tenant client; they cannot be read anonymously.
+x-evidence:
+  fetched: '2026-08-26'
+  url: https://auth.rapiddeploy.com/.well-known/openid-configuration
+  http_status: 200

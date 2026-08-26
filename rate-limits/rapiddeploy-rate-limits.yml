@@ -1,0 +1,23 @@
+generated: '2026-08-26'
+method: searched
+source: 'Anonymous probe of https://api.rapiddeploy.com/ plus a search of every public RapidDeploy surface'
+name: RapidDeploy rate limits
+description: >-
+  No rate limits are documented. RapidDeploy publishes no API reference, so there is no stated limit,
+  window, burst allowance or exhaustion status code. No RateLimit-*, X-RateLimit-* or Retry-After
+  header was observed on the anonymous responses from api.rapiddeploy.com; the host is fronted by
+  Cloudflare, which means an edge limit almost certainly exists but is not advertised to callers.
+limit_count: 0
+limits: []
+headers_observed: []
+headers_documented: []
+exhaustion_status_code: null
+evidence:
+- url: https://api.rapiddeploy.com/
+  status: 404
+  detail: >-
+    Response headers were date, content-type, content-length, cf-cache-status, server: cloudflare,
+    cf-ray. No rate-limit signalling header of any kind.
+note: >-
+  An honest zero. An integrator cannot learn the throughput budget of this API without a tenant
+  agreement, and an agent has no runtime signal to back off on.
