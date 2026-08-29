@@ -12,6 +12,17 @@ description: >-
   markets an open-API framework for integrating third-party systems such as Priority Dispatch for
   police, fire and EMS, but publishes no public API reference or machine-readable contract.
 url: https://raw.githubusercontent.com/api-evangelist/rapiddeploy/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://avatars.githubusercontent.com/u/85182598?v=4
 x-type: company
 x-source: harvest:secondary-market
