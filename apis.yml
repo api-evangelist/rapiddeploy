@@ -12,6 +12,9 @@ description: >-
   markets an open-API framework for integrating third-party systems such as Priority Dispatch for
   police, fire and EMS, but publishes no public API reference or machine-readable contract.
 url: https://raw.githubusercontent.com/api-evangelist/rapiddeploy/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "RapidDeploy markets an open-API framework for integrating third-party systems such as Priority Dispatch for police, fire and EMS, but publishes no public API reference or machine-readable contract."
 deliveryModel:
   model: saas
   open_source: false
