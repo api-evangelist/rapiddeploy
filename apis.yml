@@ -76,6 +76,11 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/motorola-solutions/
+  name: Motorola Solutions
+  x-relationship: acquired
+  x-evidence: "The company was acquired by Motorola Solutions and folded into its Command Center software portfolio; rapiddeploy."
 - type: DomainSecurity
   url: security/rapiddeploy-domain-security.yml
 - type: Website
