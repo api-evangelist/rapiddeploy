@@ -1,20 +1,21 @@
 aid: rapiddeploy
 name: RapidDeploy
-description: >-
-  RapidDeploy is a cloud-native Next Generation 9-1-1 (NG911) software company founded in 2013 in
-  South Africa and headquartered in Austin, Texas from 2018. It builds call-taking, dispatch, mapping
-  and analytics software for Public Safety Answering Points (PSAPs) on Microsoft Azure: Nimbus CAD
-  (cloud computer-aided dispatch), Radius Mapping (NG911 primary call-taking tactical map with a deep
-  ESRI integration and supplemental location data sources), Lightning (a first-responder mobile
-  application) and Eclipse Analytics (response-time and staffing analytics). The company was acquired
-  by Motorola Solutions and folded into its Command Center software portfolio; rapiddeploy.com and
-  every path beneath it now HTTP 301 to a Motorola Solutions NG9-1-1 product page. RapidDeploy
-  markets an open-API framework for integrating third-party systems such as Priority Dispatch for
-  police, fire and EMS, but publishes no public API reference or machine-readable contract.
+description: 'RapidDeploy is a cloud-native Next Generation 9-1-1 (NG911) software company founded in
+  2013 in South Africa and headquartered in Austin, Texas from 2018. It builds call-taking, dispatch,
+  mapping and analytics software for Public Safety Answering Points (PSAPs) on Microsoft Azure: Nimbus
+  CAD (cloud computer-aided dispatch), Radius Mapping (NG911 primary call-taking tactical map with a deep
+  ESRI integration and supplemental location data sources), Lightning (a first-responder mobile application)
+  and Eclipse Analytics (response-time and staffing analytics). The company was acquired by Motorola Solutions
+  and folded into its Command Center software portfolio; rapiddeploy.com and every path beneath it now
+  HTTP 301 to a Motorola Solutions NG9-1-1 product page. RapidDeploy markets an open-API framework for
+  integrating third-party systems such as Priority Dispatch for police, fire and EMS, but publishes no
+  public API reference or machine-readable contract.'
 url: https://raw.githubusercontent.com/api-evangelist/rapiddeploy/refs/heads/main/apis.yml
 x-api-posture: no-product-api
 x-api-posture-basis: observed
-x-api-posture-note: "RapidDeploy markets an open-API framework for integrating third-party systems such as Priority Dispatch for police, fire and EMS, but publishes no public API reference or machine-readable contract."
+x-api-posture-note: RapidDeploy markets an open-API framework for integrating third-party systems such
+  as Priority Dispatch for police, fire and EMS, but publishes no public API reference or machine-readable
+  contract.
 deliveryModel:
   model: saas
   open_source: false
@@ -58,15 +59,13 @@ tags:
 - Government
 - Cloud
 apis:
-- aid: rapiddeploy-platform
+- aid: rapiddeploy:rapiddeploy-platform
   name: RapidDeploy Platform API
-  description: >-
-    The RapidDeploy platform API host that backs Nimbus CAD, Radius Mapping, Lightning and Eclipse
-    Analytics. The host is live and answers with a JSON envelope, but every anonymous path returns
-    404 "Resource not found" and RapidDeploy publishes no public reference or machine-readable
-    contract for it. Access is issued to agency tenants through the company's Auth0 tenant at
-    auth.rapiddeploy.com. Recorded here because the host was probed directly, not because a public
-    API product is documented.
+  description: The RapidDeploy platform API host that backs Nimbus CAD, Radius Mapping, Lightning and
+    Eclipse Analytics. The host is live and answers with a JSON envelope, but every anonymous path returns
+    404 "Resource not found" and RapidDeploy publishes no public reference or machine-readable contract
+    for it. Access is issued to agency tenants through the company's Auth0 tenant at auth.rapiddeploy.com.
+    Recorded here because the host was probed directly, not because a public API product is documented.
   humanURL: https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
   baseURL: https://api.rapiddeploy.com
   tags:
@@ -95,18 +94,19 @@ common:
   url: https://apis.io/providers/motorola-solutions/
   name: Motorola Solutions
   x-relationship: acquired
-  x-evidence: "The company was acquired by Motorola Solutions and folded into its Command Center software portfolio; rapiddeploy."
+  x-evidence: The company was acquired by Motorola Solutions and folded into its Command Center software
+    portfolio; rapiddeploy.
 - type: DomainSecurity
   url: security/rapiddeploy-domain-security.yml
 - type: Website
   url: https://www.motorolasolutions.com/en_us/products/command-center-software/public-safety-software/ng9-1-1-call-management.html
-  x-note: >-
-    rapiddeploy.com (and www.rapiddeploy.com, via redirector.mot-solutions.com) 301s every path to
-    this Motorola Solutions NG9-1-1 page following the acquisition. Verified 2026-08-26; the page
-    itself carries no RapidDeploy branding.
+  x-note: rapiddeploy.com (and www.rapiddeploy.com, via redirector.mot-solutions.com) 301s every path
+    to this Motorola Solutions NG9-1-1 page following the acquisition. Verified 2026-08-26; the page itself
+    carries no RapidDeploy branding.
 - type: GitHubOrganization
   url: https://github.com/rapiddeploy
-  x-note: 'First-party org (login rapiddeploy, blog https://rapiddeploy.com, info@rapiddeploy.com); 0 public repos as of 2026-08-26.'
+  x-note: First-party org (login rapiddeploy, blog https://rapiddeploy.com, info@rapiddeploy.com); 0 public
+    repos as of 2026-08-26.
 - type: StatusPage
   url: https://status.rapiddeploy.com
 - type: Lifecycle
@@ -129,10 +129,10 @@ common:
   url: rate-limits/rapiddeploy-rate-limits.yml
 - type: PrivacyPolicy
   url: https://www.motorolasolutions.com/en_us/about/privacy-policy.html
-  x-note: 'Acquirer''s policy; RapidDeploy''s own domain 301s to motorolasolutions.com.'
+  x-note: Acquirer's policy; RapidDeploy's own domain 301s to motorolasolutions.com.
 - type: TermsOfService
   url: https://www.motorolasolutions.com/en_us/about/terms-use.html
-  x-note: 'Acquirer''s terms; RapidDeploy''s own domain 301s to motorolasolutions.com.'
+  x-note: Acquirer's terms; RapidDeploy's own domain 301s to motorolasolutions.com.
 x-enrichment:
   date: '2026-08-26'
   status: minimal
@@ -141,12 +141,10 @@ x-enrichment:
 x-coverage:
   state: gated
   reason: customer-only-docs
-  detail: >-
-    RapidDeploy has no developer portal at all after the Motorola Solutions acquisition -
-    rapiddeploy.com and every path under it 301s to a Motorola Solutions NG9-1-1 marketing page that
-    never mentions RapidDeploy - while api.rapiddeploy.com stays live and answers every anonymous
-    path with a JSON 404, so the contract is reachable only by an agency tenant holding credentials
-    from the company's Auth0 tenant at auth.rapiddeploy.com.
+  detail: RapidDeploy has no developer portal at all after the Motorola Solutions acquisition - rapiddeploy.com
+    and every path under it 301s to a Motorola Solutions NG9-1-1 marketing page that never mentions RapidDeploy
+    - while api.rapiddeploy.com stays live and answers every anonymous path with a JSON 404, so the contract
+    is reachable only by an agency tenant holding credentials from the company's Auth0 tenant at auth.rapiddeploy.com.
   evidence:
   - url: https://rapiddeploy.com/
     status: 301
