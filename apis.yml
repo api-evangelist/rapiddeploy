@@ -157,3 +157,5 @@ x-coverage:
   - url: https://developer.rapiddeploy.com/
     status: 0
   checked: '2026-08-26'
+x-parent: motorola-solutions
+x-relationship: acquisition
